@@ -52,7 +52,7 @@ const courses = [
 const SingleCourse = () => {
   const location = useLocation();
   const data = location.state;
-  console.log(data);
+  
   return (
     <>
 

@@ -50,16 +50,14 @@
         }
     }
 
-    @media (min-width: $breakpoint-md) {
-
-
-        &-NavLink {
+    &-NavLink {
+        @media (min-width: $breakpoint-md) {
             margin-right: 32px;
             transition: color 03s ease-out;
-        }
 
-        &-NavLink:hover {
-            color: $colorPrimary;
+            &:hover {
+                color: $colorPrimary;
+            }
         }
     }
 

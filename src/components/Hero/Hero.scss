@@ -1,0 +1,78 @@
+@use '../../theme.scss' as *;
+
+.Hero {
+    height: 570px;
+    position: relative;
+
+    &-Figure {
+        width: 100%;
+        height: 100%;
+    }
+
+
+    &-Img {
+        object-fit: cover;
+        height: 100%;
+        width: 100%;
+
+    }
+
+    &-Overlay {
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.6);
+        position: absolute;
+        top: 0;
+    }
+
+    &-Content {
+        position: absolute;
+        top: 0;
+        width: 100%;
+        height: 100%;
+    }
+
+    &-ContentInner {
+        margin-left: 28px;
+    }
+
+    &-TextCard {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+
+    &-Title {
+        color: $colorSecondary;
+        font-weight: 700;
+        font-size: 38px;
+        line-height: 130%;
+        letter-spacing: 1px;
+        max-width: 450px;
+        margin-bottom: 24px;
+
+    }
+
+    &-Subtitle {
+        color: $colorSecondary;
+        font-size: 16px;
+        line-height: 150%;
+        letter-spacing: 0.4px;
+        max-width: 550px;
+        margin-bottom: 32px;
+    }
+
+    @media (min-width:$breakpoint-sm) {
+
+        &-ContentInner {
+            margin-left: 32px;
+        }
+
+    }
+
+    @media (min-width:$breakpoint-sm) {
+        &-ContentInner {
+            margin-left: 48px;
+        }
+    }
+}

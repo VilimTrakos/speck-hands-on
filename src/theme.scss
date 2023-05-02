@@ -1,0 +1,26 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+//Fonts
+$fontPrimary: "Inter", sans-serif;
+$fontSecondary: 'PT Serif', 'serif';
+
+//Colors
+$colorPrimary: #bf3939;
+$colorSecondary: #ffffff;
+
+//Background Colors
+$colorBgPrimary: #f8f9fa;
+$colorBgSecondary: #ffffff;
+
+//Text Colors
+$colorTextPrimary: #151e28;
+$colorTextSecondary: #6c757d;
+
+//Dark Colors
+$colorPrimaryDark: #8a2828;
+$colorBlack: #000000;
+
+//Breakpoints
+$breakpoint-xs: 580px;
+$breakpoint-sm: 768px;
+$breakpoint-md: 1024px;
+$breakpoint-lg: 1300px;

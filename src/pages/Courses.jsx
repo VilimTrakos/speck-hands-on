@@ -31,15 +31,17 @@ const Courses = () => {
                     {courses &&
                         <Grid>
                             {courses.map((course, index) => index < 8 && (
-                                <Link to={`/singleCourse/${course.title}`} key={course.id} state={course}>
-                                    <Course
-                                        imgSrc={course.imgSrc}
-                                        imgAlt={course.imgAlt}
-                                        title={course.title}
-                                        subtitle={course.subtitle}
-                                        time={course.time}
-                                    />
-                                </Link>
+
+                                <Course
+                                    key={course.id}
+                                    id={course.id}
+                                    imgSrc={course.imgSrc}
+                                    imgAlt={course.imgAlt}
+                                    title={course.title}
+                                    subtitle={course.subtitle}
+                                    time={course.time}
+                                />
+
                             ))}
                         </Grid>}
                 </Section>

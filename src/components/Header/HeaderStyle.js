@@ -18,7 +18,7 @@ export const HeaderInner = styled.div`
         align-items: center;
         padding: 0 24px;
 
-        @media (min-width:${breakpoints.tablet}) {
+        @media (${breakpoints.tablet}) {
             padding: 0 32px;
         }
 

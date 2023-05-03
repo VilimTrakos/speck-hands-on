@@ -1,4 +1,3 @@
-//import "./Hero.scss";
 import HeroLandingPicture from "../../assets/images/landing.jpg";
 import {Button as Button} from "../../utils/styles/generalStyles"
 import {Hero as HeroWrapper, HeroFigure,HeroImg,HeroOverlay,HeroContent,HeroContentInner,HeroTextCard,HeroTitle,HeroSubtitle} from "./HeroStyle"

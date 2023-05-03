@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import "./Course.scss";
 import {Course as CourseWrapper, CourseFigure,CourseImage,CourseTitle, CourseSubtitle, CourseTime} from "./CourseStyle"
 import { Link } from 'react-router-dom';
 

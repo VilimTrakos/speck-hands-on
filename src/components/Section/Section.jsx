@@ -1,5 +1,4 @@
 import React from 'react';
-import "./Section.scss";
 import PropTypes from "prop-types";
 import {Section as SectionWrapper,SectionInner,SectionTitle,SectionSubtitle } from "./SectionStyle"
 

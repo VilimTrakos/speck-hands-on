@@ -1,6 +1,6 @@
 import "./Hero.scss";
 import HeroImg from "../../assets/images/landing.jpg";
-import Button from "../Button/Button.jsx"
+import {Button as Button} from "../../utils/styles/generalStyles"
 
 import { Link } from "react-router-dom";
 

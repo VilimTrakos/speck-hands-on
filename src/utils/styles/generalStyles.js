@@ -3,7 +3,7 @@ import { breakpoints, colors} from "./theme"
 
 export const Button = styled.button`
 
-padding: 12px 20px;
+    padding: 12px 20px;
     background-color: ${colors.primary};
     border-radius: 4px;
     color: ${colors.secondary};
@@ -26,22 +26,15 @@ display: grid;
     gap: 32px;
     
 
-    @media (min-width: ${breakpoints.tabletSmall}) {
+    @media screen and (${breakpoints.tabletSmall}) {
 
         grid-template-columns: repeat(2, 1fr);
-
     }
-
-    @media (min-width: ${breakpoints.tablet}) {
-
+    @media screen and (${breakpoints.tablet}) {
         grid-template-columns: repeat(3, 1fr);
-
     }
-
-    @media(min-width: ${breakpoints.desktopLarge}) {
-
+    @media screen and (${breakpoints.desktopLarge}) {
         grid-template-columns: repeat(4, 1fr);
-
     }
 
 `

@@ -11,23 +11,23 @@ const Header = () => {
 
     const navigate = useNavigate();
 
-    
+
 
     return (<HeaderWrapper>
         <HeaderInner>
-        <Link to={"/"}>
-            <Logo/>
-        </Link>
-        <Hamburger/>
-        <HeaderNav>
-            <HeaderLink to={"/"}>Home</HeaderLink>
-            <HeaderLink to={"/Courses"}>Courses</HeaderLink>
-            
-            <HeaderLink to={"/SignIn"}><HeaderButton> Sign in</HeaderButton></HeaderLink>
-            <HeaderLink to={"/Register"}><HeaderButton> Register</HeaderButton></HeaderLink>
-        </HeaderNav>
+            <Link to={"/"}>
+                <Logo />
+            </Link>
+            <Hamburger />
+            <HeaderNav>
+                <HeaderLink to={"/"}>Home</HeaderLink>
+                <HeaderLink to={"/Courses"}>Courses</HeaderLink>
+
+                <HeaderButton onClick={() => navigate("/SignIn")}> Sign in</HeaderButton>
+                <HeaderButton onClick={() => navigate("/Register")}> Register</HeaderButton>
+            </HeaderNav>
         </HeaderInner>
-            </HeaderWrapper>
+    </HeaderWrapper>
     )
 
 }

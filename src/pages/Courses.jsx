@@ -33,13 +33,13 @@ const Courses = () => {
 
     return (
         <>
-            <Header />
+            
             
                 <SearchBar placeholder={"Search..."} disabled={false} onValueChange={handleSearch}></SearchBar>
                 
             
             
-            <main>
+            
                 <Section title="Browse our all courses" subtitle="We recommend that you choose one of the featured courses. If you
                     don't find anything for you here, search for courses in detail on
                     the courses page.">
@@ -62,7 +62,7 @@ const Courses = () => {
                         </Grid>}
                 </Section>
 
-            </main>
+            
 
         </>
     );

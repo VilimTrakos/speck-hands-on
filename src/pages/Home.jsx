@@ -4,7 +4,6 @@ import Header from "../components/Header/Header"
 import Hero from "../components/Hero/Hero"
 import Section from "../components/Section/Section"
 import Course from "../components/Course/Course"
-import {LoaderWrapper} from "../components/Loader/Loader";
 
 import { Link } from "react-router-dom";
 
@@ -23,15 +22,13 @@ const Home = () => {
 
   return (
     <>
-      <Header />
-      <main>
-
+      
         <Hero />
         <Section title="Open your new possibilities" subtitle="We recommend that you choose one of the featured courses. If you
                     don't find anything for you here, search for courses in detail on
                     the courses page.">
 
-        {courses? ( 
+        {courses && 
           <Grid>
             {courses.map((course,index) => index < 4 &&(
               
@@ -46,12 +43,9 @@ const Home = () => {
                 />
               
             ))}
-          </Grid>) :(
-            <LoaderWrapper/>
-          )
-          }
+          </Grid>}
         </Section>
-      </main>
+      
     </>
   );
 }

@@ -33,11 +33,11 @@ const Header = () => {
                         Courses
                     </HamburgerLink>
 
-                    <HamburgerLink to={"/SignIn"}>
+                    <HamburgerLink to={"/sign-in"}>
                         Sign in
                     </HamburgerLink>
 
-                    <HamburgerLink to={"/Register"}>
+                    <HamburgerLink to={"/register"}>
                         Register
                     </HamburgerLink>
 
@@ -48,8 +48,8 @@ const Header = () => {
             <HeaderNav>
                 <HeaderLink to={"/"}>Home</HeaderLink>
                 <HeaderLink to={"/Courses"}>Courses</HeaderLink>
-                <HeaderButton onClick={() => navigate("/SignIn")}> Sign in</HeaderButton>
-                <HeaderButton onClick={() => navigate("/Register")}> Register</HeaderButton>
+                <HeaderButton onClick={() => navigate("/sign-in")} isOutline> Sign in</HeaderButton>
+                <HeaderButton onClick={() => navigate("/register")}> Register</HeaderButton>
             </HeaderNav>
         </HeaderInner>
     </HeaderWrapper>

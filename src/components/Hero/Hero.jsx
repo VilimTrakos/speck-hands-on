@@ -20,7 +20,7 @@ const Hero = () => {
                         <HeroSubtitle>Make a turnaround in your career or upgrade your current skill
                             set with knowledge-based lessons from IT practice.</HeroSubtitle>
                             <Link to="/Courses">
-                            <Button>
+                            <Button isSecondary>
                                 Explort courses
                             </Button>
                         </Link>

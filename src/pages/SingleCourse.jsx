@@ -32,14 +32,13 @@ const SingleCourse = () => {
   return (
     <>
 
-      <Header />
-      <main>
+      
         {course &&
           <Section title={course.title}>
             <CourseArticle imgSrc={course.imgSrc} imgAlt={course.imgAlt} content={course.content} />
           </Section>
         }
-      </main>
+      
 
     </>
   )

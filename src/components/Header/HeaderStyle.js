@@ -5,10 +5,13 @@ import { ReactComponent as LogoIcon } from '../../assets/images/logo.svg'
 import { Link } from 'react-router-dom';
 import { Button } from '../../utils/styles/generalStyles';
 
+
 export const Header = styled.header`
     background-color: ${colors.bgSecondary};
 
 `;
+
+
 
 export const HeaderInner = styled.div`
 
@@ -80,5 +83,36 @@ export const HeaderNav = styled.nav`
         @media (${breakpoints.desktop}) {
         display: block;
 }
+`
+export const HamburgerDiv = styled.div`
+
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 40%;
+    height: 100%;
+    z-index: 9999;
+    background-color:${colors.bgSecondary};
+    @media (${breakpoints.desktop}) {
+        display: none;
+        
+    }
+
+`
+export const HamburgerLink = styled(Link)`
+
+    text-align:center;
+    display: block;
+    justify-content: center;
+    line-height: 3;
+    color: ${colors.textPrimary};
+    
+    &:hover{
+        color: ${colors.textSecondary};
+        background-color:${colors.primaryDark};
+    }
+    background-color:${colors.primary};
+    font-size: 32px;
+    width: 100%;
 
 `

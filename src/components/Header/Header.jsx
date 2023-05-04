@@ -1,19 +1,50 @@
-import { Header as HeaderWrapper, HeaderInner, Hamburger, Logo, HeaderLink, HeaderButton, HeaderNav } from "./HeaderStyle"
+import { Header as HeaderWrapper, HeaderInner, Hamburger, Logo, HeaderLink, HeaderButton, HeaderNav, HamburgerDiv, HamburgerLink } from "./HeaderStyle"
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 
+
 import React from "react";
+import { useState } from "react";
 
 const Header = () => {
 
     const navigate = useNavigate();
 
-    return (<HeaderWrapper>
+    const [sidebar, setSidebar] = useState(false);
+    const showSidebar = () => setSidebar(!sidebar);
+
+    return (
+        
+    <HeaderWrapper>
+    
         <HeaderInner>
             <Link to={"/"}>
                 <Logo />
             </Link>
-            <Hamburger />
+            <Hamburger onClick={showSidebar} />
+            {sidebar &&
+                <HamburgerDiv onClick={showSidebar}>
+
+                    <HamburgerLink to={"/"}>
+                        Home
+                    </HamburgerLink>
+
+                    <HamburgerLink to={"/Courses"}>
+                        Courses
+                    </HamburgerLink>
+
+                    <HamburgerLink to={"/SignIn"}>
+                        Sign in
+                    </HamburgerLink>
+
+                    <HamburgerLink to={"/Register"}>
+                        Register
+                    </HamburgerLink>
+
+
+                </HamburgerDiv>
+            }
+
             <HeaderNav>
                 <HeaderLink to={"/"}>Home</HeaderLink>
                 <HeaderLink to={"/Courses"}>Courses</HeaderLink>

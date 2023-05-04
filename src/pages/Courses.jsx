@@ -2,13 +2,13 @@ import React from 'react'
 import Header from "../components/Header/Header"
 import { Link } from "react-router-dom";
 
-//import Grid from "../components/Grid/Grid"
 import { Grid } from "../utils/styles/generalStyles"
 import Section from "../components/Section/Section"
 import Course from "../components/Course/Course"
 
 import { useEffect, useState } from "react";
 import coursesMock from "../utils/mock/courses";
+import SearchBar from '../components/SearchBar/SearchBar';
 
 
 const Courses = () => {
@@ -20,9 +20,25 @@ const Courses = () => {
         }, 1000);
     }, []);
 
+
+    const [searchTerm, setSearchTerm] = useState("");
+
+    const handleSearch = (value) => {
+        setSearchTerm(value);
+    };
+
+    
+
+
+
     return (
         <>
             <Header />
+            
+                <SearchBar placeholder={"Search..."} disabled={false} onValueChange={handleSearch}></SearchBar>
+                
+            
+            
             <main>
                 <Section title="Browse our all courses" subtitle="We recommend that you choose one of the featured courses. If you
                     don't find anything for you here, search for courses in detail on

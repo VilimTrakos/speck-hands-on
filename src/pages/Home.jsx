@@ -4,6 +4,7 @@ import Header from "../components/Header/Header"
 import Hero from "../components/Hero/Hero"
 import Section from "../components/Section/Section"
 import Course from "../components/Course/Course"
+import {LoaderWrapper} from "../components/Loader/Loader";
 
 import { Link } from "react-router-dom";
 
@@ -30,7 +31,7 @@ const Home = () => {
                     don't find anything for you here, search for courses in detail on
                     the courses page.">
 
-        {courses && 
+        {courses? ( 
           <Grid>
             {courses.map((course,index) => index < 4 &&(
               
@@ -45,7 +46,10 @@ const Home = () => {
                 />
               
             ))}
-          </Grid>}
+          </Grid>) :(
+            <LoaderWrapper/>
+          )
+          }
         </Section>
       </main>
     </>

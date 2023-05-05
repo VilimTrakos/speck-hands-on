@@ -3,7 +3,7 @@ import React from "react";
 const SearchBar = ({ placeholder, disabled, onValueChange }) => {
   const handleInputChange = (event) => {
     const currentValue = event.target.value;
-    onValueChange(console.log(currentValue));
+    onValueChange(currentValue);
   };
 
   return (

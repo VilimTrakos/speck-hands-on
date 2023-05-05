@@ -19,9 +19,17 @@ const Courses = () => {
   }, []);
 
   const [searchTerm, setSearchTerm] = useState("");
+  const [filteredCourses, setFilteredCourses] = useState(null);
 
   const handleSearch = (value) => {
-    setSearchTerm(value);
+    const searchTerm = value.toLowerCase();
+    const filteredCourses = courses.filter((course) => {
+      const title = course.title.toLowerCase();
+
+      return title.includes(searchTerm);
+    });
+    console.log(filteredCourses);
+    setFilteredCourses(filteredCourses);
   };
 
   return (
@@ -41,22 +49,33 @@ const Courses = () => {
                     don't find anything for you here, search for courses in detail on
                     the courses page."
         >
-          {courses ? (
+          {filteredCourses ? (
             <Grid>
-              {courses.map(
-                (course, index) =>
-                  index < 8 && (
-                    <Course
-                      key={course.id}
-                      id={course.id}
-                      imgSrc={course.imgSrc}
-                      imgAlt={course.imgAlt}
-                      title={course.title}
-                      subtitle={course.subtitle}
-                      time={course.time}
-                    />
-                  )
-              )}
+              {filteredCourses.map((course) => (
+                <Course
+                  key={course.id}
+                  id={course.id}
+                  imgSrc={course.imgSrc}
+                  imgAlt={course.imgAlt}
+                  title={course.title}
+                  subtitle={course.subtitle}
+                  time={course.time}
+                />
+              ))}
+            </Grid>
+          ) : courses ? (
+            <Grid>
+              {courses.slice(0, 8).map((course) => (
+                <Course
+                  key={course.id}
+                  id={course.id}
+                  imgSrc={course.imgSrc}
+                  imgAlt={course.imgAlt}
+                  title={course.title}
+                  subtitle={course.subtitle}
+                  time={course.time}
+                />
+              ))}
             </Grid>
           ) : (
             <Loader />

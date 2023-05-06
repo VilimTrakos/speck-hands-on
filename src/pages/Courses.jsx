@@ -36,12 +36,6 @@ const Courses = () => {
     <>
       <Header />
 
-      <SearchBar
-        placeholder={"Search..."}
-        disabled={courses ? false : true}
-        onValueChange={handleSearch}
-      ></SearchBar>
-
       <main>
         <Section
           title="Browse our all courses"
@@ -49,6 +43,11 @@ const Courses = () => {
                     don't find anything for you here, search for courses in detail on
                     the courses page."
         >
+          <SearchBar
+            placeholder={"Search..."}
+            disabled={courses ? false : true}
+            onValueChange={handleSearch}
+          ></SearchBar>
           {filteredCourses ? (
             <Grid>
               {filteredCourses.map((course) => (

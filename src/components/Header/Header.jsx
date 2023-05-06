@@ -33,6 +33,7 @@ const Header = () => {
             <HamburgerLink to={"/"}>Home</HamburgerLink>
 
             <HamburgerLink to={"/Courses"}>Courses</HamburgerLink>
+            <HamburgerLink to={"/profile"}>Profile</HamburgerLink>
 
             <HamburgerLink to={"/sign-in"}>Sign in</HamburgerLink>
 
@@ -43,6 +44,7 @@ const Header = () => {
         <HeaderNav>
           <HeaderLink to={"/"}>Home</HeaderLink>
           <HeaderLink to={"/Courses"}>Courses</HeaderLink>
+          <HeaderLink to={"/profike"}>Profile</HeaderLink>
           <HeaderButton onClick={() => navigate("/sign-in")} isOutline>
             {" "}
             Sign in

@@ -1,5 +1,5 @@
 import React from "react";
-import Header from "../../components/Header/Header";
+
 import { Link } from "react-router-dom";
 import Loader from "../../components/Loader/Loader";
 import { Grid } from "../../utils/styles/generalStyles";

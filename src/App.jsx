@@ -8,6 +8,8 @@ import Register from "./pages/Register/Register";
 import { Route, Routes } from "react-router-dom";
 import { useEffect } from "react";
 import Header from "./components/Header/Header";
+import { RotatingLines } from "react-loader-spinner";
+import Profile from "./pages/Profile/Profile";
 
 function App() {
   return (
@@ -19,8 +21,9 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="courses" element={<Courses />} />
           <Route path="singleCourse/:id" element={<SingleCourse />} />
-          <Route path="/sign-in" element={<SignIn />} />
-          <Route path="/register" element={<Register />} />
+          <Route path="sign-in" element={<SignIn />} />
+          <Route path="register" element={<Register />} />
+          <Route path="profile" element={<Profile />} />
         </Routes>
       </main>
     </>

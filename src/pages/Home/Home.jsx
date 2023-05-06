@@ -1,6 +1,6 @@
 import React from "react";
 import { Grid } from "../../utils/styles/generalStyles";
-import Header from "../../components/Header/Header";
+
 import Hero from "../../components/Hero/Hero";
 import Section from "../../components/Section/Section";
 import Course from "../../components/Course/Course";

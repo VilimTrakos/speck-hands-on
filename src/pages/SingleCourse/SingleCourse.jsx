@@ -1,7 +1,7 @@
 import React from "react";
 import coursesMock from "../../utils/mock/courses";
 import Section from "../../components/Section/Section";
-import Header from "../../components/Header/Header";
+
 import CourseArticle from "../../components/CourseArticle/CourseArticle";
 
 import { useParams } from "react-router-dom";

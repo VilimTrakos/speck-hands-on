@@ -4,12 +4,12 @@ import Header from "../components/Header/Header";
 import Hero from "../components/Hero/Hero";
 import Section from "../components/Section/Section";
 import Course from "../components/Course/Course";
+import Loader from "../components/Loader/Loader";
 
 import { Link } from "react-router-dom";
 
 import { useEffect, useState } from "react";
 import coursesMock from "../utils/mock/courses";
-import LoaderWrapper from "../components/Loader/Loader";
 
 const Home = () => {
   const [courses, setCourses] = useState(null);
@@ -28,7 +28,7 @@ const Home = () => {
                     don't find anything for you here, search for courses in detail on
                     the courses page."
       >
-        {courses && (
+        {courses ? (
           <Grid>
             {courses.map(
               (course, index) =>
@@ -45,6 +45,8 @@ const Home = () => {
                 )
             )}
           </Grid>
+        ) : (
+          <Loader />
         )}
       </Section>
     </>

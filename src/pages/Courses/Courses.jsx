@@ -1,14 +1,14 @@
 import React from "react";
-import Header from "../components/Header/Header";
+import Header from "../../components/Header/Header";
 import { Link } from "react-router-dom";
-import Loader from "../components/Loader/Loader";
-import { Grid } from "../utils/styles/generalStyles";
-import Section from "../components/Section/Section";
-import Course from "../components/Course/Course";
+import Loader from "../../components/Loader/Loader";
+import { Grid } from "../../utils/styles/generalStyles";
+import Section from "../../components/Section/Section";
+import Course from "../../components/Course/Course";
 
 import { useEffect, useState } from "react";
-import coursesMock from "../utils/mock/courses";
-import SearchBar from "../components/SearchBar/SearchBar";
+import coursesMock from "../../utils/mock/courses";
+import SearchBar from "../../components/SearchBar/SearchBar";
 
 const Courses = () => {
   const [courses, setCourses] = useState(null);

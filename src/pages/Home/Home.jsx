@@ -1,15 +1,15 @@
 import React from "react";
-import { Grid } from "../utils/styles/generalStyles";
-import Header from "../components/Header/Header";
-import Hero from "../components/Hero/Hero";
-import Section from "../components/Section/Section";
-import Course from "../components/Course/Course";
-import Loader from "../components/Loader/Loader";
+import { Grid } from "../../utils/styles/generalStyles";
+import Header from "../../components/Header/Header";
+import Hero from "../../components/Hero/Hero";
+import Section from "../../components/Section/Section";
+import Course from "../../components/Course/Course";
+import Loader from "../../components/Loader/Loader";
 
 import { Link } from "react-router-dom";
 
 import { useEffect, useState } from "react";
-import coursesMock from "../utils/mock/courses";
+import coursesMock from "../../utils/mock/courses";
 
 const Home = () => {
   const [courses, setCourses] = useState(null);

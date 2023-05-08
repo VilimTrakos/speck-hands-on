@@ -16,6 +16,12 @@ export const Button = styled.button`
   border: none;
 
   ${(props) =>
+    props.isUpdate &&
+    `
+        margin: 10px 7.5%;
+    `}
+
+  ${(props) =>
     props.isSecondary &&
     `
         padding: 16px 20px;
@@ -63,6 +69,14 @@ export const Form = styled(FormFormik)`
 `;
 export const FormRow = styled.div`
   margin-bottom: 32px;
+
+  ${(props) =>
+    props.isProfile &&
+    `
+    margin:10px 7.5%; 
+      
+      
+        `}
 
   &:last-child {
     margin-bottom: 0;

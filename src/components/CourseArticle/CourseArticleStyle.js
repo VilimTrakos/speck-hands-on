@@ -14,18 +14,18 @@ export const SingleCourseFigure = styled.figure`
   overflow: hidden;
   margin-bottom: 32px;
 
-  @media (${breakpoints.tabletSmall}) {
+  @media screen and (${breakpoints.tabletSmall}) {
     height: 300px;
   }
 
-  @media (${breakpoints.tablet}) {
+  @media screen and (${breakpoints.tablet}) {
     height: 350px;
     width: 350px;
     flex-shrink: 0;
     margin-right: 48px;
   }
 
-  @media (${breakpoints.desktopLarge}) {
+  @media screen and (${breakpoints.desktopLarge}) {
     height: 450px;
     width: 500px;
     margin-right: 90px;

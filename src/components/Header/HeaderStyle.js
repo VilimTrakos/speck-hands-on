@@ -16,17 +16,17 @@ export const HeaderInner = styled.div`
   align-items: center;
   padding: 0 24px;
 
-  @media (${breakpoints.tablet}) {
+  @media screen and (${breakpoints.tablet}) {
     padding: 0 32px;
   }
 
-  @media (${breakpoints.desktop}) {
+  @media screen and (${breakpoints.desktop}) {
     padding: 0;
     max-width: 930px;
     margin: 0 auto;
   }
 
-  @media (${breakpoints.desktopLarge}) {
+  @media screen and (${breakpoints.desktopLarge}) {
     max-width: 1280px;
   }
 `;
@@ -36,7 +36,7 @@ export const Hamburger = styled(HamburgerIcon)`
   width: 32px;
   height: 32px;
 
-  @media (${breakpoints.desktop}) {
+  @media screen and (${breakpoints.desktop}) {
     display: none;
   }
 `;
@@ -68,7 +68,7 @@ export const HeaderButton = styled(Button)`
 export const HeaderNav = styled.nav`
   display: none;
 
-  @media (${breakpoints.desktop}) {
+  @media screen and (${breakpoints.desktop}) {
     display: block;
   }
 `;
@@ -80,7 +80,7 @@ export const HamburgerDiv = styled.div`
   height: 100%;
   z-index: 9999;
   background-color: ${colors.bgSecondary};
-  @media (${breakpoints.desktop}) {
+  @media screen and (${breakpoints.desktop}) {
     display: none;
   }
 `;

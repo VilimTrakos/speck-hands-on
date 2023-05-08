@@ -30,10 +30,10 @@ export const HeroContent = styled.div`
 `;
 export const HeroContentInner = styled.div`
   margin-left: 28px;
-  @media (${breakpoints.tablet}) {
+  @media screen and (${breakpoints.tablet}) {
     margin-left: 32px;
   }
-  @media (${breakpoints.desktop}) {
+  @media screen and (${breakpoints.desktop}) {
     margin-left: 48px;
   }
 `;

@@ -16,11 +16,17 @@ export const SectionGridContainer = styled.section`
 
 export const PasswordContainer = styled.div`
   grid-column-start: 2;
+
   border-radius: 10px;
   background-color: ${colors.bgSecondary};
   width: 100%;
   margin-left: 25px;
-  height: 70%;
+  height: 25%;
+  ${(props) =>
+    props.isEditingMode &&
+    `
+      height: 68%;
+    `}
 `;
 export const EditProfileButton = styled(Button)`
   float: right;

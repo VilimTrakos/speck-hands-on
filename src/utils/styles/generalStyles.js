@@ -73,7 +73,7 @@ export const FormRow = styled.div`
   ${(props) =>
     props.isProfile &&
     `
-    margin:10px 7.5%; 
+    margin:25px 7.5%; 
       
       
         `}

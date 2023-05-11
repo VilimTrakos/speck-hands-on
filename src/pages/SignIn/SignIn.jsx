@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Formik } from "formik";
 import * as Yup from "yup";
 import Section from "../../components/Section/Section";
@@ -8,9 +8,14 @@ import {
   Field,
   Form,
   FormRow,
+  FormSuccessMessage,
 } from "../../utils/styles/generalStyles";
+import { getAllUsers, loginUser } from "../../API/users";
+import { findDOMNode } from "react-dom";
 
-const SignIn = () => {
+const SignIn = ({ setIsAdmin, setIsLoggedIn }) => {
+  const [successMessage, setSuccessMessage] = useState(null);
+
   return (
     <Section title="Sign in">
       <Formik
@@ -26,20 +31,46 @@ const SignIn = () => {
             .min(8, "Password must be at least 8 characters long!")
             .required("Password is required"),
         })}
-        onSubmit={(values, { setSubmitting, resetForm }) => {
-          setTimeout(() => {
-            const data = {
-              email: values.email,
-              password: values.password,
-            };
-            alert(JSON.stringify(data, null, 2));
-            setSubmitting(false);
+        onSubmit={async (values, { setSubmitting, resetForm }) => {
+          try {
+            const response = await loginUser(values);
+
+            const users = await getAllUsers(response.access_token);
+
+            const user = users.data.find((user) => user.email == values.email);
+            setSuccessMessage({
+              error: false,
+              message: `User ${user.first_name} is loged in!`,
+            });
+            setTimeout(() => {
+              setSuccessMessage(null);
+            }, 3000);
+
+            localStorage.setItem("jwt_token", response.access_token);
+
+            setIsAdmin(user.is_admin);
+            setIsLoggedIn(response.access_token ? true : false);
+
             resetForm();
-          }, 1000);
+          } catch (error) {
+            setSuccessMessage({
+              error: true,
+              message: "There was an error...",
+            });
+          } finally {
+            setSubmitting(false);
+          }
         }}
       >
         {(formik) => (
           <Form>
+            {successMessage && (
+              <FormRow>
+                <FormSuccessMessage isError={successMessage.error}>
+                  {successMessage.message}
+                </FormSuccessMessage>
+              </FormRow>
+            )}
             <FormRow>
               <Field
                 type="email"

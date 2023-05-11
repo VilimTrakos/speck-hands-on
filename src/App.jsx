@@ -6,12 +6,16 @@ import SignIn from "./pages/SignIn/SignIn";
 import Register from "./pages/Register/Register";
 
 import { Route, Routes } from "react-router-dom";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import Header from "./components/Header/Header";
 import { RotatingLines } from "react-loader-spinner";
 import Profile from "./pages/Profile/Profile";
 
 function App() {
+  //probaj kontekst koristiti
+  const [isAdmin, setIsAdmin] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
   return (
     <>
       <ScrollToTop />
@@ -21,7 +25,12 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="courses" element={<Courses />} />
           <Route path="singleCourse/:id" element={<SingleCourse />} />
-          <Route path="sign-in" element={<SignIn />} />
+          <Route
+            path="sign-in"
+            element={
+              <SignIn setIsAdmin={setIsAdmin} setIsLoggedIn={setIsLoggedIn} />
+            }
+          />
           <Route path="register" element={<Register />} />
           <Route path="profile" element={<Profile />} />
         </Routes>

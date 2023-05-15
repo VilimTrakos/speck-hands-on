@@ -12,14 +12,18 @@ import { RotatingLines } from "react-loader-spinner";
 import Profile from "./pages/Profile/Profile";
 
 function App() {
-  //probaj kontekst koristiti
   const [isAdmin, setIsAdmin] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   return (
     <>
       <ScrollToTop />
-      <Header />
+      <Header
+        isAdmin={isAdmin}
+        isLoggedIn={isLoggedIn}
+        setIsAdmin={setIsAdmin}
+        setIsLoggedIn={setIsLoggedIn}
+      />
       <main>
         <Routes>
           <Route path="/" element={<Home />} />

@@ -47,6 +47,7 @@ const SignIn = ({ setIsAdmin, setIsLoggedIn }) => {
             }, 3000);
 
             localStorage.setItem("jwt_token", response.access_token);
+            localStorage.setItem("is_admin", user.is_admin);
 
             setIsAdmin(user.is_admin);
             setIsLoggedIn(response.access_token ? true : false);

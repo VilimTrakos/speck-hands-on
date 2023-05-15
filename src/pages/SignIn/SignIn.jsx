@@ -11,7 +11,6 @@ import {
   FormSuccessMessage,
 } from "../../utils/styles/generalStyles";
 import { getAllUsers, loginUser } from "../../API/users";
-import { findDOMNode } from "react-dom";
 
 const SignIn = ({ setIsAdmin, setIsLoggedIn }) => {
   const [successMessage, setSuccessMessage] = useState(null);
@@ -53,6 +52,7 @@ const SignIn = ({ setIsAdmin, setIsLoggedIn }) => {
             setIsLoggedIn(response.access_token ? true : false);
 
             resetForm();
+            window.location.href = "/"; //Znam da nije najbolje rješenje, ali history hook ne radi iz nekog razloga :/
           } catch (error) {
             setSuccessMessage({
               error: true,

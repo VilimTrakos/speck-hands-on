@@ -15,6 +15,14 @@ function App() {
   const [isAdmin, setIsAdmin] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
+  useEffect(() => {
+    const jwtToken = localStorage.getItem("jwt_token");
+    const isAdminLocal = localStorage.getItem("is_admin");
+
+    setIsAdmin(JSON.parse(isAdminLocal));
+    setIsLoggedIn(jwtToken ? true : false);
+  }, []);
+
   return (
     <>
       <ScrollToTop />

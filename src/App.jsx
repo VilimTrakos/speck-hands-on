@@ -8,8 +8,9 @@ import Register from "./pages/Register/Register";
 import { Route, Routes } from "react-router-dom";
 import { useEffect, useState } from "react";
 import Header from "./components/Header/Header";
-import { RotatingLines } from "react-loader-spinner";
+
 import Profile from "./pages/Profile/Profile";
+import ProtectedRoute from "./components/ProtectedRoute/ProtectedRoute";
 
 function App() {
   const [isAdmin, setIsAdmin] = useState(false);
@@ -38,13 +39,23 @@ function App() {
           <Route path="courses" element={<Courses />} />
           <Route path="singleCourse/:id" element={<SingleCourse />} />
           <Route
-            path="sign-in"
             element={
-              <SignIn setIsAdmin={setIsAdmin} setIsLoggedIn={setIsLoggedIn} />
+              <ProtectedRoute isAllowed={!isLoggedIn} redirectPath={"/"} />
             }
-          />
-          <Route path="register" element={<Register />} />
-          <Route path="profile" element={<Profile />} />
+          >
+            <Route
+              path="sign-in"
+              element={
+                <SignIn setIsAdmin={setIsAdmin} setIsLoggedIn={setIsLoggedIn} />
+              }
+            />
+            <Route path="register" element={<Register />} />
+          </Route>
+          <Route
+            element={<ProtectedRoute isAllowed={isAdmin} redirectPath={"/"} />}
+          >
+            <Route path="profile" element={<Profile />} />
+          </Route>
         </Routes>
       </main>
     </>

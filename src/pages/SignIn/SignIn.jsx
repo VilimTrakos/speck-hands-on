@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { Formik } from "formik";
 import * as Yup from "yup";
 import Section from "../../components/Section/Section";
@@ -11,9 +11,14 @@ import {
   FormSuccessMessage,
 } from "../../utils/styles/generalStyles";
 import { getAllUsers, loginUser } from "../../API/users";
+import { AdminContext } from "../../context/AdminContext";
+import { LoggedInContext } from "../../context/LogedContext";
 
-const SignIn = ({ setIsAdmin, setIsLoggedIn }) => {
+const SignIn = () => {
   const [successMessage, setSuccessMessage] = useState(null);
+
+  const { isLoggedIn, setIsLoggedIn } = useContext(LoggedInContext);
+  const { isAdmin, setIsAdmin } = useContext(AdminContext);
 
   return (
     <Section title="Sign in">
@@ -49,6 +54,7 @@ const SignIn = ({ setIsAdmin, setIsLoggedIn }) => {
             localStorage.setItem("is_admin", user.is_admin);
 
             setIsAdmin(user.is_admin);
+
             setIsLoggedIn(response.access_token ? true : false);
 
             resetForm();

@@ -12,14 +12,19 @@ import {
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 
-import React from "react";
+import React, { useContext } from "react";
 import { useState } from "react";
+import { LoggedInContext } from "../../context/LogedContext";
+import { AdminContext } from "../../context/AdminContext";
 
-const Header = ({ isAdmin, isLoggedIn, setIsLoggedIn, setIsAdmin }) => {
+const Header = () => {
   const navigate = useNavigate();
 
   const [sidebar, setSidebar] = useState(false);
   const showSidebar = () => setSidebar(!sidebar);
+
+  const { isLoggedIn, setIsLoggedIn } = useContext(LoggedInContext);
+  const { isAdmin, setIsAdmin } = useContext(AdminContext);
 
   const logout = () => {
     setIsLoggedIn(false);

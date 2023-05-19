@@ -6,15 +6,17 @@ import SignIn from "./pages/SignIn/SignIn";
 import Register from "./pages/Register/Register";
 
 import { Route, Routes } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import Header from "./components/Header/Header";
 
 import Profile from "./pages/Profile/Profile";
 import ProtectedRoute from "./components/ProtectedRoute/ProtectedRoute";
+import { LoggedInContext } from "./context/LogedContext";
+import { AdminContext } from "./context/AdminContext";
 
 function App() {
-  const [isAdmin, setIsAdmin] = useState(false);
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const { isLoggedIn, setIsLoggedIn } = useContext(LoggedInContext);
+  const { isAdmin, setIsAdmin } = useContext(AdminContext);
 
   useEffect(() => {
     const jwtToken = localStorage.getItem("jwt_token");

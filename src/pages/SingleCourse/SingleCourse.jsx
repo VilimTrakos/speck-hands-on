@@ -5,33 +5,43 @@ import Section from "../../components/Section/Section";
 import CourseArticle from "../../components/CourseArticle/CourseArticle";
 
 import { useParams } from "react-router-dom";
-
+import { observer } from "mobx-react";
+import coursesStore from "../../store/CoursesStore";
 import { useEffect, useState } from "react";
 
 const SingleCourse = () => {
+  const { getCourseById, singleCourse, coursesLength, setCourses, courses } =
+    coursesStore;
   const { id } = useParams();
 
-  const [courses, setCourses] = useState(null);
-  const [course, setCours] = useState(null);
+  /*
+  const [course, setCourse] = useState();
 
   useEffect(() => {
-    setTimeout(() => {
-      setCourses(coursesMock);
-    }, 1000);
+    setCourse(getCourseById(id));
   }, []);
-
+*/
+  //za singleCourse--
   useEffect(() => {
-    courses && setCours(courses.find((course) => course.id === parseInt(id)));
-  }, [courses]);
-
+    if (coursesLength === 0) {
+      setTimeout(() => {
+        setCourses(coursesMock);
+        getCourseById(id);
+      }, 1000);
+    }
+  }, []);
+  useEffect(() => {
+    coursesLength && getCourseById(id);
+  }, [coursesLength]);
+  //----
   return (
     <>
-      {course && (
-        <Section title={course.title}>
+      {singleCourse && ( // ili getCourseById(id) ili course iz state
+        <Section title={singleCourse.title}>
           <CourseArticle
-            imgSrc={course.imgSrc}
-            imgAlt={course.imgAlt}
-            content={course.content}
+            imgSrc={singleCourse.imgSrc}
+            imgAlt={singleCourse.imgAlt}
+            content={singleCourse.content}
           />
         </Section>
       )}
@@ -39,4 +49,4 @@ const SingleCourse = () => {
   );
 };
 
-export default SingleCourse;
+export default observer(SingleCourse);

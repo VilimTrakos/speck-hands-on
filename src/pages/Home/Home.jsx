@@ -5,18 +5,21 @@ import Hero from "../../components/Hero/Hero";
 import Section from "../../components/Section/Section";
 import Course from "../../components/Course/Course";
 import Loader from "../../components/Loader/Loader";
-
 import { Link } from "react-router-dom";
-
 import { useEffect, useState } from "react";
 import coursesMock from "../../utils/mock/courses";
+import { observer } from "mobx-react";
+import coursesStore from "../../store/CoursesStore";
 
 const Home = () => {
-  const [courses, setCourses] = useState(null);
+  const { courses, coursesLength, setCourses } = coursesStore;
+
   useEffect(() => {
-    setTimeout(() => {
-      setCourses(coursesMock);
-    }, 1000);
+    if (coursesLength === 0) {
+      setTimeout(() => {
+        setCourses(coursesMock);
+      }, 1000);
+    }
   }, []);
 
   return (
@@ -28,7 +31,7 @@ const Home = () => {
                     don't find anything for you here, search for courses in detail on
                     the courses page."
       >
-        {courses ? (
+        {coursesLength ? (
           <Grid>
             {courses.map(
               (course, index) =>
@@ -53,4 +56,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default observer(Home);

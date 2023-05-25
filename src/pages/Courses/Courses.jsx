@@ -2,21 +2,41 @@ import React from "react";
 
 import { Link } from "react-router-dom";
 import Loader from "../../components/Loader/Loader";
-import { Grid } from "../../utils/styles/generalStyles";
+import { Button, Grid } from "../../utils/styles/generalStyles";
 import Section from "../../components/Section/Section";
 import Course from "../../components/Course/Course";
 
 import { useEffect, useState } from "react";
 import coursesMock from "../../utils/mock/courses";
 import SearchBar from "../../components/SearchBar/SearchBar";
+import { observer } from "mobx-react";
+import coursesStore from "../../store/CoursesStore";
+import LectureImg1 from "../../assets/images/lecture-1.jpg";
 
 const Courses = () => {
-  const [courses, setCourses] = useState(null);
+  const { courses, coursesLength, setCourses, setCourse } = coursesStore;
   useEffect(() => {
-    setTimeout(() => {
-      setCourses(coursesMock);
-    }, 1000);
+    if (coursesLength === 0) {
+      setTimeout(() => {
+        setCourses(coursesMock);
+      }, 1000);
+    }
   }, []);
+
+  const handleAddCourse = () => {
+    const courseId = coursesLength + 1;
+
+    setCourse({
+      id: courseId,
+      imgSrc: LectureImg1,
+      imgAlt: `New course ${courseId}`,
+      title: `${courseId}. New course`,
+      subtitle: "Get to know us better...",
+      time: "60min",
+      content:
+        "In this course, you'll get to know the instructor and their teaching style, as well as the objectives and expectations of the course. We'll also cover some basic information about web development and programming.",
+    });
+  };
 
   const [searchTerm, setSearchTerm] = useState("");
   const [filteredCourses, setFilteredCourses] = useState(null);
@@ -45,6 +65,8 @@ const Courses = () => {
           disabled={courses ? false : true}
           onValueChange={handleSearch}
         ></SearchBar>
+        <Button onClick={handleAddCourse}>Add new course</Button>
+        <div>courses count: {coursesLength}</div>
         {filteredCourses ? (
           <Grid>
             {filteredCourses.map((course) => (
@@ -59,9 +81,9 @@ const Courses = () => {
               />
             ))}
           </Grid>
-        ) : courses ? (
+        ) : coursesLength ? (
           <Grid>
-            {courses.slice(0, 8).map((course) => (
+            {courses.slice(0, 20).map((course) => (
               <Course
                 key={course.id}
                 id={course.id}
@@ -81,4 +103,4 @@ const Courses = () => {
   );
 };
 
-export default Courses;
+export default observer(Courses);

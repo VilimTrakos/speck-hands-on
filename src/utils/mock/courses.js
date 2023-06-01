@@ -1,24 +1,14 @@
-import React from 'react'
-import Header from "../components/Header/Header"
-import { Link } from "react-router-dom";
+import LectureImg1 from "../../assets/images/lecture-1.jpg"
+import LectureImg2 from "../../assets/images/lecture-2.jpg"
+import LectureImg3 from "../../assets/images/lecture-3.jpg"
+import LectureImg4 from "../../assets/images/lecture-4.jpg"
+import LectureImg5 from "../../assets/images/lecture-5.jpg"
+import LectureImg6 from "../../assets/images/lecture-6.jpg"
+import LectureImg7 from "../../assets/images/lecture-7.jpg"
+import LectureImg8 from "../../assets/images/lecture-8.jpg"
 
 
-
-import Grid from "../components/Grid/Grid"
-
-import Section from "../components/Section/Section"
-import Course from "../components/Course/Course"
-import LectureImg1 from "../assets/images/lecture-1.jpg"
-import LectureImg2 from "../assets/images/lecture-2.jpg"
-import LectureImg3 from "../assets/images/lecture-3.jpg"
-import LectureImg4 from "../assets/images/lecture-4.jpg"
-import LectureImg5 from "../assets/images/lecture-5.jpg"
-import LectureImg6 from "../assets/images/lecture-6.jpg"
-import LectureImg7 from "../assets/images/lecture-7.jpg"
-import LectureImg8 from "../assets/images/lecture-8.jpg"
-
-
-const courses = [
+const coursesMock = [
     {
         id: 1,
         imgSrc: LectureImg1,
@@ -69,7 +59,7 @@ const courses = [
         imgSrc: LectureImg6,
         imgAlt: "lekcija6",
         title: "Advanced JavaScript",
-        subtitle: "Learn professional JavaScript concepts",
+        subtitle: "Learn Pro JavaScript concepts",
         time: "240min",
         content: "In this course, you'll learn more advanced JavaScript concepts, including scope and closures, asynchronous programming, error handling, and using third-party libraries and APIs. You'll also learn about best practices for writing clean and maintainable code."
     },
@@ -92,39 +82,4 @@ const courses = [
         content: "In this advanced React course, you'll dive deeper into the React ecosystem and learn advanced techniques for building complex user interfaces. Topics covered include server-side rendering, routing, form handling, and state management using tools like Redux and MobX. You'll also learn about advanced performance optimizations and testing techniques. By the end of the course, you'll be able to build scalable, production-ready applications using React."
     },
 ]
-
-const Courses = () => {
-
-
-
-    return (
-        <>
-            <Header />
-            <main>
-                <Section title="Browse our all courses" subtitle="We recommend that you choose one of the featured courses. If you
-                    don't find anything for you here, search for courses in detail on
-                    the courses page.">
-
-                    <Grid>
-                        {courses.map((course) => (
-                            <Link to={`/singleCourse/${course.id}`} key={course.id} state={course}>
-                                <Course
-                                    imgSrc={course.imgSrc}
-                                    imgAlt={course.imgAlt}
-                                    title={course.title}
-                                    subtitle={course.subtitle}
-                                    time={course.time}
-                                />
-                            </Link>
-                        ))}
-                    </Grid>
-                </Section>
-
-            </main>
-
-        </>
-    );
-}
-
-
-export default Courses;
+export  default coursesMock;

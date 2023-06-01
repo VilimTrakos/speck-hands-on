@@ -26,7 +26,7 @@ const Home = () => {
     <>
       <Hero />
       <Section
-        title="Open your new possibilities"
+        title="Close your new possibilities"
         subtitle="We recommend that you choose one of the featured courses. If you
                     don't find anything for you here, search for courses in detail on
                     the courses page."
